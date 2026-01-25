@@ -282,9 +282,9 @@ ORDER BY total_orders DESC;
 ```
 ###  💡 Insight: Top loyalists place up to 20 orders. Keeping them engaged with targeted offers is vital for long-term health .
 
-Q16: Top 20% Customer Contribution (80–20 Rule)
+###  Q16: Top 20% Customer Contribution (80–20 Rule)
 SQL
-
+``` 
 WITH customer_revenue AS (
     SELECT customer_id, SUM(order_value - discount_amount) AS revenue FROM orders 
     WHERE order_status = 'Completed' GROUP BY customer_id
@@ -293,21 +293,21 @@ ranked AS (
     SELECT *, NTILE(5) OVER(ORDER BY revenue DESC) AS bucket FROM customer_revenue
 )
 SELECT bucket, SUM(revenue) AS revenue FROM ranked GROUP BY bucket ORDER BY bucket;
+``` 
+###  💡 Insight: Identifies revenue concentration, showing how much total revenue is driven by the top tier (Bucket 1) of customers.
 
-💡 Insight: Identifies revenue concentration, showing how much total revenue is driven by the top tier (Bucket 1) of customers.
-
-Q17: Order Cancellation Rate
+###  Q17: Order Cancellation Rate
 SQL
-
+``` 
 SELECT 
     ROUND((COUNT(*) FILTER (WHERE order_status = 'Cancelled')::FLOAT / COUNT(*) * 100)::NUMERIC, 2) AS cancellation_rate
 FROM orders;
+```
+###  💡 Insight: The cancellation rate is 7.02%, which is manageable and not a high-risk factor .
 
-💡 Insight: The cancellation rate is 7.02%, which is manageable and not a high-risk factor .
-
-Q18: City-wise Delivery Performance
+### Q18: City-wise Delivery Performance
 SQL
-
+```
 SELECT 
     o.city, 
     ROUND(AVG(d.delivery_time_min)::numeric, 2) AS avg_delivery_time,
@@ -316,57 +316,57 @@ FROM deliveries d
 JOIN orders o ON d.order_id = o.order_id
 GROUP BY o.city
 ORDER BY delay_percentage DESC;
+```
+### 💡 Insight: Delay percentages are consistently high (~68%) across all cities, with Mumbai being the highest .
 
-💡 Insight: Delay percentages are consistently high (~68%) across all cities, with Mumbai being the highest .
-
-Q19: Complaint Rate per 100 Orders
+### Q19: Complaint Rate per 100 Orders
 SQL
-
+```
 SELECT 
     ROUND((COUNT(st.ticket_id)::float / COUNT(o.order_id) * 100)::numeric, 2) AS complaints_per_100_orders
 FROM orders o
 LEFT JOIN support_tickets st ON o.customer_id = st.customer_id
 WHERE o.order_status = 'Completed';
+```
+###  💡 Insight: A staggering 73.13% complaint rate, indicating a severe need for operational improvements .
 
-💡 Insight: A staggering 73.13% complaint rate, indicating a severe need for operational improvements .
-
-Q20: Support Resolution Time Impact
+###  Q20: Support Resolution Time Impact
 SQL
-
+```
 SELECT 
     CASE WHEN resolution_time_hrs <= 6 THEN 'Fast Resolution' ELSE 'Slow Resolution' END AS resolution_type,
     COUNT(DISTINCT customer_id) AS customers
 FROM support_tickets
 GROUP BY 1;
+```
+###  💡 Insight: Identifies the volume of customers affected by slow service (72,480) compared to fast service (8,903).
 
-💡 Insight: Identifies the volume of customers affected by slow service (72,480) compared to fast service (8,903).
-
-Q21: Primary Customer Issue Types
+### Q21: Primary Customer Issue Types
 SQL
-
+```
 SELECT 
     issue_type, 
     COUNT(issue_type) 
 FROM support_tickets 
 GROUP BY issue_type;
+```
+###  💡 Insight: Late Delivery is the top issue (53,874 cases), confirming the logistics bottleneck .
 
-💡 Insight: Late Delivery is the top issue (53,874 cases), confirming the logistics bottleneck .
-
-Q22: Profit per Order (Transactional Level)
-SQL
-
+###  Q22: Profit per Order (Transactional Level)
+`SQL
+```
 SELECT 
     o.order_id, 
     (o.order_value - o.discount_amount) - (co.delivery_cost + co.refunds_cost) AS profit_per_order
 FROM orders o
 JOIN costs co ON DATE(o.order_timestamp) = co.date AND o.city = co.city
 WHERE o.order_status = 'Completed';
+```
+###  💡 Insight: Granular view of profit/loss per individual transaction after accounting for overhead.
 
-💡 Insight: Granular view of profit/loss per individual transaction after accounting for overhead.
-
-Q23: Growth vs. Profit Trade-off
+###  Q23: Growth vs. Profit Trade-off
 SQL
-
+``` 
 WITH daily_revenue AS (
     SELECT DATE(order_timestamp) AS date, city, SUM(order_value - discount_amount) AS revenue FROM orders 
     WHERE order_status = 'Completed' GROUP BY 1, 2
@@ -379,7 +379,6 @@ FROM daily_revenue r
 JOIN costs c ON r.date = c.date AND r.city = c.city
 GROUP BY r.city
 ORDER BY profit ASC;
+```
+###  💡 Insight: In every city, revenue is significantly lower than the costs of marketing, delivery, and refunds .
 
-💡 Insight: In every city, revenue is significantly lower than the costs of marketing, delivery, and refunds .
-
-Would you like me to generate a specific visualization plan for these insights, such as a city-wise loss map or a monthly revenue growth chart?
