@@ -80,21 +80,21 @@ CREATE TABLE costs (
 ); 
 
 ```
-🚀 Business Analysis & Insights (23 Queries)
-Q1: Business Scale & Total Activity
+## 🚀 Business Analysis & Insights (23 Queries)
+### Q1: Business Scale & Total Activity
 SQL
-
+```
 SELECT 
     COUNT(*) AS total_orders, 
     SUM(order_value - discount_amount) AS total_revenue 
 FROM orders 
 WHERE order_status = 'Completed';
+```
+### 💡 Insight: The business has processed 836,810 completed orders, generating a total revenue of 471,511,630.65 .
 
-💡 Insight: The business has processed 836,810 completed orders, generating a total revenue of 471,511,630.65 .
-
-Q2: Monthly Revenue Trend (Growth Check)
+### Q2: Monthly Revenue Trend (Growth Check)
 SQL
-
+```
 SELECT 
     DATE_TRUNC('month', order_timestamp) AS month, 
     SUM(order_value - discount_amount) AS revenue 
@@ -102,12 +102,12 @@ FROM orders
 WHERE order_status = 'Completed' 
 GROUP BY month 
 ORDER BY month;
+```
+### 💡 Insight: Measures if the business is growing or stagnating by tracking revenue fluctuations month-over-month.
 
-💡 Insight: Measures if the business is growing or stagnating by tracking revenue fluctuations month-over-month.
-
-Q3: New vs. Loyal Customer Revenue
+###Q3: New vs. Loyal Customer Revenue
 SQL
-
+```
 WITH first_orders AS (
     SELECT customer_id, MIN(order_timestamp) AS first_order_date 
     FROM orders 
@@ -122,8 +122,8 @@ FROM orders o
 JOIN first_orders f ON o.customer_id = f.customer_id
 WHERE o.order_status = 'Completed'
 GROUP BY customer_type;
-
-💡 Insight: Repeat users contribute significantly more revenue (403,300,088.09) than new users (68,211,542.56), proving retention is the primary revenue driver .
+```
+### 💡 Insight: Repeat users contribute significantly more revenue (403,300,088.09) than new users (68,211,542.56), proving retention is the primary revenue driver .
 
 Q4: Churn Rate (Customer Loss)
 SQL
