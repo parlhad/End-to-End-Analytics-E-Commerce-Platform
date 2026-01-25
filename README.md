@@ -105,7 +105,7 @@ ORDER BY month;
 ```
 ### 💡 Insight: Measures if the business is growing or stagnating by tracking revenue fluctuations month-over-month.
 
-###Q3: New vs. Loyal Customer Revenue
+### Q3: New vs. Loyal Customer Revenue
 SQL
 ```
 WITH first_orders AS (
@@ -125,27 +125,27 @@ GROUP BY customer_type;
 ```
 ### 💡 Insight: Repeat users contribute significantly more revenue (403,300,088.09) than new users (68,211,542.56), proving retention is the primary revenue driver .
 
-Q4: Churn Rate (Customer Loss)
+### Q4: Churn Rate (Customer Loss)
 SQL
-
+```
 SELECT 
     COUNT(*) FILTER(WHERE is_active = 'False')::FLOAT / COUNT(*) * 100 AS Churn_rate_per 
 FROM customers;
+```
+### 💡 Insight: Approximately 27.76% of the customer base has stopped ordering from the company.
 
-💡 Insight: Approximately 27.76% of the customer base has stopped ordering from the company.
-
-Q5: Delivery Delay Rate
+###  Q5: Delivery Delay Rate
 SQL
-
+```
 SELECT 
     ROUND((COUNT(*) FILTER (WHERE is_delayed = 'True')::FLOAT / COUNT(*) * 100)::NUMERIC, 2) AS delivery_delay_rate
 FROM deliveries;
+```
+###  💡 Insight: The delivery delay rate is critically high at 68.39% .
 
-💡 Insight: The delivery delay rate is critically high at 68.39% .
-
-Q6: Delay Impact on Repeat Orders
+###  Q6: Delay Impact on Repeat Orders
 SQL
-
+```
 WITH delayed_customers AS (
     SELECT DISTINCT o.customer_id
     FROM orders o
@@ -159,23 +159,23 @@ FROM orders o
 JOIN customers c ON o.customer_id = c.customer_id
 WHERE o.order_status = 'Completed'
 GROUP BY 1;
+```
+###  💡 Insight: 835,231 orders were from customers with a delayed experience, compared to only 1,579 for on-time, suggesting delays are a massive barrier to retention .
 
-💡 Insight: 835,231 orders were from customers with a delayed experience, compared to only 1,579 for on-time, suggesting delays are a massive barrier to retention .
-
-Q7: Customer Acquisition Cost (CAC) by Channel
+###  Q7: Customer Acquisition Cost (CAC) by Channel
 SQL
-
+```
 SELECT 
     channel, 
     ROUND(SUM(spend_amount)::NUMERIC / SUM(users_acquired)::NUMERIC, 2) AS cust_aqu_cost
 FROM marketing_spend 
 GROUP BY channel;
+```
+### 💡 Insight: Paid channels are the most efficient (73.88), while Referral channels are the least efficient (77.60) .
 
-💡 Insight: Paid channels are the most efficient (73.88), while Referral channels are the least efficient (77.60) .
-
-Q8: Identifying High-Value Customers (LTV)
+###  Q8: Identifying High-Value Customers (LTV)
 SQL
-
+```
 SELECT 
     customer_id, 
     SUM(order_value - discount_amount) AS life_time_revenue
@@ -184,8 +184,8 @@ WHERE order_status = 'Completed'
 GROUP BY customer_id
 ORDER BY life_time_revenue DESC;
 💡 Insight: Top customer (ID: 67633) has added 15,461.07 in revenue. Retaining these high-value users through loyalty programs is essential .
-
-Q9: CLTV vs. Acquisition Spend Efficiency
+```
+###  Q9: CLTV vs. Acquisition Spend Efficiency
 SQL
 
 WITH cltv AS (
@@ -198,12 +198,12 @@ SELECT
 FROM cltv
 JOIN customers c ON cltv.customer_id = c.customer_id
 GROUP BY c.acquisition_channel;
+```
+###  💡 Insight: Returns are nearly identical across channels (~3,930), meaning marketing budgets can be optimized to the cheapest acquisition sources .
 
-💡 Insight: Returns are nearly identical across channels (~3,930), meaning marketing budgets can be optimized to the cheapest acquisition sources .
-
-Q10: Contribution Margin (Overall Profitability)
+###  Q10: Contribution Margin (Overall Profitability)
 SQL
-
+```
 SELECT 
     SUM(o.net_revenue) - SUM(co.total_daily_costs) AS Contribution_margin_revenue
 FROM (
@@ -214,12 +214,12 @@ JOIN (
     SELECT date, city, SUM(delivery_cost + marketing_cost + refunds_cost) as total_daily_costs
     FROM costs GROUP BY 1, 2
 ) co ON o.order_date = co.date AND o.city = co.city;
+```
+###  💡 Insight: The company is currently at a massive loss (-1,193,467,022.38); operational spend is far exceeding revenue .
 
-💡 Insight: The company is currently at a massive loss (-1,193,467,022.38); operational spend is far exceeding revenue .
-
-Q11: Profit/Loss per City
+### Q11: Profit/Loss per City
 SQL
-
+```
 SELECT 
     co.city, 
     (rev.net_revenue)-(co.total_costs) AS city_profit
@@ -230,12 +230,12 @@ JOIN (
     SELECT city, SUM(order_value - discount_amount) as net_revenue FROM orders WHERE order_status = 'Completed' GROUP BY city
 ) rev ON co.city = rev.city
 ORDER BY city_profit ASC;
+```
+### 💡 Insight: All 7 major cities analyzed are currently loss-making, with Pune and Delhi showing the highest losses .
 
-💡 Insight: All 7 major cities analyzed are currently loss-making, with Pune and Delhi showing the highest losses .
-
-Q12: Identification of Refund-Heavy Customers
+###  Q12: Identification of Refund-Heavy Customers
 SQL
-
+```
 SELECT 
     customer_id, 
     SUM(compensation_amount) AS total_refund
@@ -243,22 +243,22 @@ FROM support_tickets
 GROUP BY customer_id
 HAVING SUM(compensation_amount) > 500
 ORDER BY total_refund DESC;
+```
+### 💡 Insight: 250 customers have each received over 500 in compensation; the refund policy must be tightened to protect margins .
 
-💡 Insight: 250 customers have each received over 500 in compensation; the refund policy must be tightened to protect margins .
-
-Q13: Average Order Value (AOV)
+###  Q13: Average Order Value (AOV)
 SQL
-
+```
 SELECT 
     ROUND(SUM(order_value - discount_amount) / COUNT(*), 2) AS avg_order_value
 FROM orders
 WHERE order_status = 'Completed';
+```
+###  💡 Insight: The global AOV is 563.46, categorized as low-to-medium .
 
-💡 Insight: The global AOV is 563.46, categorized as low-to-medium .
-
-Q14: AOV by Acquisition Channel
+###  Q14: AOV by Acquisition Channel
 SQL
-
+```
 SELECT 
     c.acquisition_channel, 
     ROUND(AVG(o.order_value - o.discount_amount), 2) AS Avg_aov
@@ -266,12 +266,12 @@ FROM orders o
 JOIN customers c ON o.customer_id = c.customer_id
 WHERE o.order_status = 'Completed'
 GROUP BY c.acquisition_channel;
+```
+###  💡 Insight: Customer quality is uniform across all channels (~563 AOV), regardless of acquisition source .
 
-💡 Insight: Customer quality is uniform across all channels (~563 AOV), regardless of acquisition source .
-
-Q15: Order Frequency per Customer (Engagement)
+###  Q15: Order Frequency per Customer (Engagement)
 SQL
-
+```
 SELECT 
     customer_id, 
     COUNT(order_id) AS total_orders
@@ -279,7 +279,8 @@ FROM orders
 WHERE order_status = 'Completed'
 GROUP BY customer_id
 ORDER BY total_orders DESC;
-💡 Insight: Top loyalists place up to 20 orders. Keeping them engaged with targeted offers is vital for long-term health .
+```
+###  💡 Insight: Top loyalists place up to 20 orders. Keeping them engaged with targeted offers is vital for long-term health .
 
 Q16: Top 20% Customer Contribution (80–20 Rule)
 SQL
