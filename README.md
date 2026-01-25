@@ -187,7 +187,7 @@ ORDER BY life_time_revenue DESC;
 ```
 ###  Q9: CLTV vs. Acquisition Spend Efficiency
 SQL
-
+```
 WITH cltv AS (
     SELECT customer_id, SUM(order_value - discount_amount) AS lifetime_value 
     FROM orders WHERE order_status = 'Completed' GROUP BY customer_id
