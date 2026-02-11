@@ -1,0 +1,36 @@
+
+1️⃣ Home
+
+Purpose:
+Landing page only — project title, short problem statement, and page navigation buttons.
+👉 No KPIs, no charts (this is professional and common).
+
+2️⃣ Overview
+
+Purpose:
+High-level business health — revenue, orders, AOV, churn, growth trend.
+👉 “Is the business healthy overall?”
+
+3️⃣ Customer
+
+Purpose:
+Customer behavior & retention — new vs repeat, churn, CLTV, loyalty signals.
+👉 “Who brings revenue and who is leaving?”
+
+4️⃣ Revenue
+
+Purpose:
+Revenue drivers — trends, AOV, repeat contribution, city/channel splits.
+👉 “Where is revenue coming from and how stable is it?”
+
+5️⃣ Cost & Marketing Performance
+
+Purpose:
+Costs + acquisition efficiency — CAC, spend vs users, channel efficiency.
+👉 “Is growth efficient or wasteful?”
+
+6️⃣ Risk / Complaints / Experience
+
+Purpose:
+Operational risk — delivery delays, complaints, refunds, service failures.
+👉 “What issues are hurting customers and causing churn?”
