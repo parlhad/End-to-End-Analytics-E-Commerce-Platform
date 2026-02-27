@@ -143,6 +143,8 @@ The project includes a professionally designed **6-page executive dashboard**, s
 6. Risk & Experience  
 
 Each page answers a specific strategic question.
+
+---
 🚀 **Live Dashboard:**  
 [Click here to view the Power BI report](https://app.powerbi.com/view?r=eyJrIjoiOTNiNjg4MTQtY2VmOC00YmNiLTk3YmYtODYzN2ViN2YxMDM4IiwidCI6ImY5YTQzODQwLWY3OGUtNDE3Yy05ZDgwLTg5NTJhMmJhN2Y0YiJ9)
 
