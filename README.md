@@ -151,14 +151,8 @@ Each page answers a specific strategic question.
 
 ## 🖼️ Dashboard Previews
 
-### 🔹 1. Overview  
-![Overview](Dashboard/Dashboard_IMG/Overviewr.png)
+![Overview](Dashboard/Photo/Home.png)
 
-### 🔹 2. User Performance  
-![User Performance](Dashboard/Dashboard_IMG/User%20Performance.png)
-
-### 🔹 3. City Overview  
-![City Overview](Dashboard/Dashboard_IMG/City%20Overview.png)
 ---
 
 # 🏠 1️⃣ Home – Strategic Context
@@ -169,6 +163,9 @@ Defines the business problem and analytical objective.
 ### Problem Statement
 
 Despite processing **836,810 completed orders** and generating **₹471M+ revenue**, the platform is experiencing structural financial losses driven by operational inefficiencies.
+
+
+![Overview](Dashboard/Photo/Home.png)
 
 ---
 
