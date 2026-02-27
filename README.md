@@ -697,8 +697,7 @@ This project is aligned with:
 # 🔗 Live Dashboard
 
 Power BI Service:
-https://app.fabric.microsoft.com/
-
+https://app.fabric.microsoft.com/groups/me/reports/978457cc-59a4-4fda-9a20-0be3356c8546/087e1c588a6444f94290?experience=fabric-developer
 ---
 
 # ⭐ Executive Summary
