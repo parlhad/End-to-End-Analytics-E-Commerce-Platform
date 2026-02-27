@@ -1,7 +1,55 @@
-# E-Commerce End-to-End SQL Analysis & Business Insights
+# 🛒 End-to-End E-Commerce Analytics Platform  
+### SQL + Power BI | Business Intelligence & Unit Economics Analysis
+
+---
 
 ##  📌 Project Overview
-This project performs an end-to-end analysis of e-commerce operations. It tracks the journey from customer acquisition and order placement to delivery performance and final profitability. The analysis reveals a business scaling well in volume but facing significant operational hurdles and financial losses.
+
+This project delivers a **complete end-to-end business intelligence case study** for a modern e-commerce platform.
+
+It evaluates the full operational lifecycle:
+
+- Customer acquisition
+- Order behavior
+- Delivery performance
+- Marketing efficiency
+- Refund leakage
+- Operational cost structure
+- Unit economics & profitability
+- Refund leakage
+- 
+
+The analysis reveals a business that is scaling in volume but structurally loss-making due to operational inefficiencies.
+
+This project combines:
+
+Advanced SQL (23 Business Queries)
+
+Power BI Executive Dashboard
+
+Business KPI Engineering
+
+Unit Economics Diagnosis
+
+### 🎯 Core Objective
+
+To diagnose why a high-scale, high-revenue e-commerce platform is **structurally loss-making**, and identify strategic actions required to restore sustainable growth.
+
+---
+
+# 🏗️ Data Architecture
+
+The analytics model is built on a relational schema consisting of 7 core business entities:
+
+- Customers  
+- Orders  
+- Order Items  
+- Deliveries  
+- Support Tickets  
+- Marketing Spend  
+- Operational Costs  
+
+This structure enables full-funnel business analysis — from acquisition to post-order support.
 
 ## 🗂️ Database Schema
 The following tables form the foundation of this analysis
@@ -80,6 +128,158 @@ CREATE TABLE costs (
 ); 
 
 ```
+---
+
+# 📊 Business Intelligence Layer (Power BI Executive Dashboard)
+
+The project includes a professionally designed **6-page executive dashboard**, structured for leadership-level decision making.
+
+---
+
+## 🔹 Dashboard Structure
+
+1. Home  
+2. Overview  
+3. Customer  
+4. Revenue  
+5. Cost & Growth Efficiency  
+6. Risk & Experience  
+
+Each page answers a specific strategic question.
+
+---
+
+# 🏠 1️⃣ Home – Strategic Context
+
+### Purpose
+Defines the business problem and analytical objective.
+
+### Problem Statement
+
+Despite processing **836,810 completed orders** and generating **₹471M+ revenue**, the platform is experiencing structural financial losses driven by operational inefficiencies.
+
+---
+
+# 📈 2️⃣ Overview – Business Health Snapshot
+
+### Core KPIs
+
+- **₹471M Net Revenue**
+- **837K Completed Orders**
+- **₹563 Average Order Value**
+- **27.76% Customer Churn**
+- **86.53% Revenue from Repeat Customers**
+- **8.59% Revenue MoM Growth**
+
+### Executive Insight
+
+The business demonstrates strong scale and demand.  
+However, revenue sustainability is heavily dependent on retention.
+
+---
+
+# 👥 3️⃣ Customer – Retention & Behavior Analysis
+
+### Key KPIs
+
+- **72.24% Active Customers**
+- **27.76% High-Risk Customers**
+- **99.58% Repeat Customer Rate**
+- **6.98 Average Orders per Active User**
+
+### Insights
+
+- Revenue is primarily driven by repeat users.
+- High churn signals post-order experience issues.
+- Customer value distribution shows limited premium segmentation.
+- Retention must take strategic priority over acquisition.
+
+---
+
+# 💰 4️⃣ Revenue – Growth Drivers & Stability
+
+### Key Metrics
+
+- **Revenue per Active Customer:** ₹3.93K
+- **Revenue Volatility Index:** 0.05
+- **Top 20% Revenue Contribution:** 36.28%
+- **Discount Dependency:** 8.54%
+
+### Insights
+
+- Revenue is volume-driven rather than value-driven.
+- Paid acquisition drives majority of revenue.
+- Product and device distribution are balanced.
+- Moderate 80–20 revenue concentration risk.
+
+---
+
+# 📊 5️⃣ Cost & Growth Efficiency – Unit Economics
+
+### Core KPIs
+
+- **₹175M Total Marketing Spend**
+- **CAC:** 76.03
+- **CLTV:** 204.51
+- **CLTV/CAC Ratio:** 55.54
+- **Marketing ROI:** 168.97%
+- **Refund Cost:** ₹222M
+- **Cost per Order:** ₹2.20K
+- **AOV:** ₹563
+
+### Critical Insight
+
+Cost per order significantly exceeds AOV.
+
+Growth is currently increasing losses instead of profit.
+
+Marketing ROI appears healthy in isolation but fails to reflect full operational cost structure.
+
+---
+
+# ⚠️ 6️⃣ Risk & Experience – Operational Diagnosis
+
+### Key KPIs
+
+- **31.61% On-Time Delivery**
+- **68.39% Delivery Delay Rate**
+- **73.13% Complaints per 100 Orders**
+- **47.21% Refund Rate**
+- **HIGH CX Risk Classification**
+
+### Operational Findings
+
+- 53,874 complaints due to late delivery.
+- 72,480 customers affected by slow support resolution.
+- Refund leakage is materially damaging margins.
+- All 7 cities analyzed are loss-making.
+- Highest city-level loss ≈ ₹17.45 Cr.
+
+---
+
+# 🔎 SQL Business Analysis (23 Advanced Queries)
+
+The SQL layer powers all insights and includes:
+
+- Business Scale & Revenue Calculation
+- Monthly Growth Tracking
+- New vs Repeat Revenue Analysis
+- Churn Rate Calculation
+- Delivery Delay Rate Measurement
+- CAC by Channel
+- CLTV Analysis
+- Contribution Margin Calculation
+- City-Level Profitability
+- Refund-Heavy Customer Detection
+- AOV & Channel Quality Analysis
+- Order Frequency Distribution
+- 80–20 Revenue Rule
+- Cancellation Rate
+- Complaint Rate
+- Profit per Order
+- Growth vs Profit Trade-off
+
+  
 ## 🚀 Business Analysis & Insights (23 Queries)
 ### Q1: Business Scale & Total Activity
 SQL
@@ -381,4 +581,137 @@ GROUP BY r.city
 ORDER BY profit ASC;
 ```
 ###  💡 Insight: In every city, revenue is significantly lower than the costs of marketing, delivery, and refunds .
+
+
+
+### Key SQL Highlights
+
+- **Total Revenue:** ₹471,511,630
+- **Churn Rate:** 27.76%
+- **Delivery Delay Rate:** 68.39%
+- **Contribution Margin:** –₹1.19B
+- **All cities are loss-making**
+- **Cancellation Rate:** 7.02% (manageable)
+- ** Total Completed Orders: **  836,810
+- ** Net Revenue:** ₹471,511,630
+- ** Highest city-level loss : **≈ ₹17.45 Cr
+
+
+---
+
+# 🧠 Final Business Diagnosis
+
+The platform is NOT suffering from:
+
+❌ Demand shortage  
+❌ Pricing issues  
+❌ Acquisition scale problems  
+
+The platform IS suffering from:
+
+✅ Unit economics failure  
+✅ Delivery inefficiency  
+✅ Refund leakage  
+✅ Operational cost imbalance  
+✅ Customer experience risk  
+
+Scaling further without correcting cost structure compounds financial losses.
+
+---
+
+# 📈 Strategic Recommendations
+
+## Immediate (0–3 Months)
+
+- Improve delivery SLAs
+- Reduce refund leakage
+- Tighten operational cost controls
+
+## Short-Term (3–6 Months)
+
+- Shift budget from acquisition to retention
+- Introduce loyalty programs for high-frequency users
+- Optimize delivery partner agreements
+
+## Long-Term (6–12 Months)
+
+- Reduce cost per order below AOV
+- Align marketing spend with CLTV, not CAC alone
+- Rebuild unit economics before geographic expansion
+
+---
+
+---
+
+# 📈 Business Impact Simulation
+
+- If operational inefficiencies are corrected:
+- Reduce delivery delays → Improve repeat rate
+- Improve retention by 5% → Significant CLTV boost
+- Reduce refund leakage → Direct margin recovery
+- Optimize CAC by channel → Sustainable growth
+
+# 📚 What This Project Demonstrates
+
+- Real-world SQL analytics
+- Business metric engineering
+- Executive dashboard design
+- KPI storytelling
+- Unit economics diagnosis
+- Cross-functional business thinking
+
+--- 
+# 🛠️ Technology Stack
+
+- PostgreSQL
+- Advanced SQL (CTEs, Window Functions, Aggregations)
+- Power BI
+- DAX Measures & KPI Engineering
+- Data Modeling (Star Schema)
+- Business Metric Framework
+- Unit Economics Analysis
+
+---
+
+# 📚 What This Project Demonstrates
+
+- Real-world SQL analytics
+- Business metric engineering
+- Executive dashboard design
+- KPI storytelling
+- Financial diagnostics
+- Unit economics modeling
+- Cross-functional business thinking
+
+---
+
+# 🎯 Ideal Roles Alignment
+
+This project is aligned with:
+
+- Data Analyst
+- Business Intelligence Analyst
+- Product Analyst
+- Growth Analyst
+- Operations Analyst
+
+---
+
+# 🔗 Live Dashboard
+
+Power BI Service:
+https://app.fabric.microsoft.com/
+
+---
+
+# ⭐ Executive Summary
+
+Despite strong order volume and revenue scale, the platform is structurally loss-making due to delivery inefficiencies, high operational costs, and refund leakage. Sustainable growth requires correcting unit economics before further expansion.
+
+---
+
+
+##  📌 Project Overview
+This project performs an end-to-end analysis of e-commerce operations. It tracks the journey from customer acquisition and order placement to delivery performance and final profitability. The analysis reveals a business scaling well in volume but facing significant operational hurdles and financial losses.
+
 
