@@ -17,19 +17,16 @@ It evaluates the full operational lifecycle:
 - Operational cost structure
 - Unit economics & profitability
 - Refund leakage
-- 
+  
 
-The analysis reveals a business that is scaling in volume but structurally loss-making due to operational inefficiencies.
+### The analysis reveals a business that is scaling in volume but structurally loss-making due to operational inefficiencies.
 
-This project combines:
+#### This project combines:
 
-Advanced SQL (23 Business Queries)
-
-Power BI Executive Dashboard
-
-Business KPI Engineering
-
-Unit Economics Diagnosis
+- Advanced SQL (23 Business Queries)
+- Power BI Executive Dashboard
+- Business KPI Engineering
+- Unit Economics Diagnosis
 
 ### 🎯 Core Objective
 
