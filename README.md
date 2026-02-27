@@ -151,7 +151,6 @@ Each page answers a specific strategic question.
 
 ## 🖼️ Dashboard Previews
 
-![Overview](Dashboard/Photo/Home.png)
 
 ---
 
@@ -165,11 +164,13 @@ Defines the business problem and analytical objective.
 Despite processing **836,810 completed orders** and generating **₹471M+ revenue**, the platform is experiencing structural financial losses driven by operational inefficiencies.
 
 
-![Overview](Dashboard/Photo/Home.png)
+![Home](Dashboard/Photo/Home.png)
 
 ---
 
 # 📈 2️⃣ Overview – Business Health Snapshot
+
+![Overview](Dashboard/Photo/Overview.png)
 
 ### Core KPIs
 
