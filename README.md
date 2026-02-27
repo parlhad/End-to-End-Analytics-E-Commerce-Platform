@@ -190,6 +190,8 @@ However, revenue sustainability is heavily dependent on retention.
 
 # 👥 3️⃣ Customer – Retention & Behavior Analysis
 
+![Customer](Dashboard/Photo/Customer.png)
+
 ### Key KPIs
 
 - **72.24% Active Customers**
@@ -207,6 +209,8 @@ However, revenue sustainability is heavily dependent on retention.
 ---
 
 # 💰 4️⃣ Revenue – Growth Drivers & Stability
+
+![Revenue](Dashboard/Photo/Revenue.png)
 
 ### Key Metrics
 
@@ -226,6 +230,7 @@ However, revenue sustainability is heavily dependent on retention.
 
 # 📊 5️⃣ Cost & Growth Efficiency – Unit Economics
 
+![Home](Dashboard/Photo/Cost%20&%20Growth%20Efficiency.png)
 ### Core KPIs
 
 - **₹175M Total Marketing Spend**
@@ -248,6 +253,9 @@ Marketing ROI appears healthy in isolation but fails to reflect full operational
 ---
 
 # ⚠️ 6️⃣ Risk & Experience – Operational Diagnosis
+
+
+![Home](Dashboard/Photo/Risk%20&%20Experience.png)
 
 ### Key KPIs
 
